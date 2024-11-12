@@ -13,7 +13,7 @@ public class QuizApplication extends JFrame implements ActionListener {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/logindb";
     private static final String USER = "root";
     private static final String PASS = "Babji1234";
-
+//hello ra
 
     JTextField txtId, txtName;
     JLabel lblId, lblName;

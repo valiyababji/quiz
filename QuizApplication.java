@@ -13,7 +13,7 @@ public class QuizApplication extends JFrame implements ActionListener {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/logindb";
     private static final String USER = "root";
     private static final String PASS = "Babji1234";
-//hello ra
+    // hello ra
 
     JTextField txtId, txtName;
     JLabel lblId, lblName;
@@ -34,13 +34,13 @@ public class QuizApplication extends JFrame implements ActionListener {
             "What is java ?"
     };
     String[][] options = {
-            {"11", "30", "1", "5"},
-            {"11", "30", "1", "5"},
-            {"11", "30", "1", "5"},
-            {"11", "30", "1", "5"},
-            {"High level language","object oriented language","medium level language","none of the above"}
+            { "11", "30", "1", "5" },
+            { "11", "30", "1", "5" },
+            { "11", "30", "1", "5" },
+            { "11", "30", "1", "5" },
+            { "High level language", "object oriented language", "medium level language", "none of the above" }
     };
-    String[] answers = {"11", "30", "1", "5", "object oriented language"};
+    String[] answers = { "11", "30", "1", "5", "object oriented language" };
 
     // Tracking answers and current question
     String[] userAnswers = new String[5];
@@ -53,7 +53,6 @@ public class QuizApplication extends JFrame implements ActionListener {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new CardLayout());
-
 
         JPanel userInputPanel = new JPanel();
         lblId = new JLabel("ID No:");
@@ -102,7 +101,7 @@ public class QuizApplication extends JFrame implements ActionListener {
         navPanel.add(btnPrevious);
         navPanel.add(btnNext);
         navPanel.add(btnSubmit);
-        btnSubmit.setVisible(false); //hide cheskuna
+        btnSubmit.setVisible(false); // hide cheskuna
 
         quizPanel.add(navPanel);
 
@@ -110,7 +109,7 @@ public class QuizApplication extends JFrame implements ActionListener {
         add(userInputPanel, "userInput");
         add(quizPanel, "quiz");
 
-        //  visibility at starting
+        // visibility at starting
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "userInput");
 
         setVisible(true);
@@ -206,7 +205,8 @@ public class QuizApplication extends JFrame implements ActionListener {
 
         // Save to database
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO quiz_results (id, name, score) VALUES (?, ?, ?)")) {
+                PreparedStatement pstmt = conn
+                        .prepareStatement("INSERT INTO quiz_results (id, name, score) VALUES (?, ?, ?)")) {
             pstmt.setLong(1, id); // Use setLong for long data type
             pstmt.setString(2, name);
             pstmt.setInt(3, score);
